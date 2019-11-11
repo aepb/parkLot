@@ -1,1 +1,6 @@
 *.class
+.vscode
+target
+.project
+.classpath
+.settings
