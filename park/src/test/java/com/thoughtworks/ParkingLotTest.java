@@ -6,7 +6,7 @@ import org.junit.Test;
 public class ParkingLotTest{
 
     @Test
-    public void giveEmptyParkAndCarWhenParkingThenGetTicket(){
+    public void givenEmptyParkLotAndCarWhenParkingThenGetTicket(){
         ParkLot parkLot=new ParkLot();
         Car car=new Car();
         Ticket ticket= parkLot.Park(car);
