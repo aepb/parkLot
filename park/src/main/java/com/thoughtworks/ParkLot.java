@@ -29,9 +29,7 @@ public class ParkLot {
 
     public Car pickUp(Ticket ticket) {
         if (parkDatas.containsKey(ticket)) {
-            Car car = parkDatas.get(ticket);
-            parkDatas.remove(ticket);
-            return car;
+            return parkDatas.remove(ticket);
         } else {
             throw new ParkingLotException("INVALID_TICKET");
         }
