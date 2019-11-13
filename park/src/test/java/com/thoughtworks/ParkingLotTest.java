@@ -58,17 +58,7 @@ public class ParkingLotTest {
         Assert.assertEquals(pickedCar.getNumber(),car.getNumber());
     }
 
-    @Test
-    public void giveParkLotAndNullTicketWhenPickupThenGetInvalidTicket() {
-        // give
-        ParkLot parkLot = new ParkLot(1);
-        // when
-        thrown.expect(ParkingLotException.class);
-        thrown.expectMessage("INVALID_TICKET");
-        parkLot.pickUp(null);
-
-
-    }
+   
 
     @Test
     public void giveParkLotAndInvalidTicketWhenPickupThenGetInvalidTicket() {
