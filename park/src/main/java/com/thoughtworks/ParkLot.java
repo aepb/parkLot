@@ -10,6 +10,9 @@ public class ParkLot {
 
     public ParkLot(int totalSpaceCount) {
         super();
+        if (totalSpaceCount <= 0) {
+            throw new ParkingLotException("TOTAL COUNT ERROR!");
+        }
         this.totalSpaceCount = totalSpaceCount;
     }
 

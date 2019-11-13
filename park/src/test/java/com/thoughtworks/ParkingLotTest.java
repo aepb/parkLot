@@ -1,69 +1,83 @@
 package com.thoughtworks;
 
 import org.junit.Assert;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 public class ParkingLotTest {
 
+    @Rule
+    public ExpectedException thrown = ExpectedException.none();
+    
+    @Test
+    public void ifTotalSpaceEqualsZeroWhenCreateParklongThenFailure() {
+        
+        thrown.expect(ParkingLotException.class);
+        thrown.expectMessage("TOTAL COUNT ERROR");
+        ParkLot parkLot = new ParkLot(0);
+        Assert.assertNull(parkLot);
+    }
+
     @Test
     public void given1SpaceParkLotAndCarWhenParkingThenGetTicket() {
-        //give
+        // give
         ParkLot parkLot = new ParkLot(1);
         Car car = new Car();
-        //when
+        // when
         Ticket ticket = parkLot.Park(car);
-        //then
+        // then
         Assert.assertNotNull(ticket);
         Assert.assertEquals(car.getNumber(), ticket.getCarNumber());
     }
 
     @Test
     public void giveNoSpaceParkLotAndCarWhenParkingThenFailure() {
-        //give
+        // give
         ParkLot parkLot = new ParkLot(1);
         Car car1 = new Car();
         parkLot.Park(car1);
         Car car2 = new Car();
-        //when
+        // when
         Ticket ticket = parkLot.Park(car2);
-        //then
+        // then
         Assert.assertNull(ticket);
 
     }
 
     @Test
     public void giveParkLotAndTicketWhenPickupThenGetCar() {
-        //give
+        // give
         ParkLot parkLot = new ParkLot(1);
         Car car = new Car();
         Ticket ticket = parkLot.Park(car);
-        //when
+        // when
         Car pickedCar = parkLot.pickUp(ticket);
-        //then
+        // then
         Assert.assertTrue(pickedCar == car);
 
     }
 
     @Test
     public void giveParkLotAndNullTicketWhenPickupThenGetNull() {
-        //give
+        // give
         ParkLot parkLot = new ParkLot(1);
-        //when
+        // when
         Car car = parkLot.pickUp(null);
-        //then
+        // then
         Assert.assertNull(car);
 
     }
 
     @Test
     public void giveParkLotAndInvalidTicketWhenPickupThenGetNull() {
-        //give
+        // give
         ParkLot parkLot = new ParkLot(1);
         Ticket ticket = parkLot.Park(new Car());
         parkLot.pickUp(ticket);
-        //when
+        // when
         Car secondPickup = parkLot.pickUp(ticket);
-        //then
+        // then
         Assert.assertNull(secondPickup);
 
     }
