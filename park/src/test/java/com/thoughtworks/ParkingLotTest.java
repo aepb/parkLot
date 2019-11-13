@@ -30,7 +30,7 @@ public class ParkingLotTest {
     }
 
     @Test
-    public void giveNoSlotParkLotAndCarWhenParkingThenGetParkingLotException() {
+    public void giveNoSlotParkLotAndCarWhenParkingThenGetPartlotFull() {
         // give
         ParkLot parkLot = new ParkLot(1);
         Car car1 = new Car("abc");
@@ -59,7 +59,7 @@ public class ParkingLotTest {
     }
 
     @Test
-    public void giveParkLotAndNullTicketWhenPickupThenGetParkingLotException() {
+    public void giveParkLotAndNullTicketWhenPickupThenGetInvalidTicket() {
         // give
         ParkLot parkLot = new ParkLot(1);
         // when
@@ -71,7 +71,7 @@ public class ParkingLotTest {
     }
 
     @Test
-    public void giveParkLotAndInvalidTicketWhenPickupThenGetGetParkingLotException() {
+    public void giveParkLotAndInvalidTicketWhenPickupThenGetInvalidTicket() {
         // give
         ParkLot parkLot = new ParkLot(1);
         Ticket ticket = parkLot.Park(new Car("abc"));
