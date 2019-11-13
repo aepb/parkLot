@@ -27,13 +27,31 @@ public class ParkingLotTest {
     }
 
     @Test
-    public void giveParkLotAndTicketWhenPickupThenGetCar(){
-        ParkLot parkLot=new ParkLot(1);
-        Car car=new Car();
-        Ticket ticket=parkLot.Park(car);
+    public void giveParkLotAndTicketWhenPickupThenGetCar() {
+        ParkLot parkLot = new ParkLot(1);
+        Car car = new Car();
+        Ticket ticket = parkLot.Park(car);
 
-        Car pickedCar= parkLot.pickUp(ticket);
-        Assert.assertTrue(pickedCar==car);
+        Car pickedCar = parkLot.pickUp(ticket);
+        Assert.assertTrue(pickedCar == car);
+
+    }
+
+    @Test
+    public void giveParkLotAndNullTicketWhenPickupThenGetNull() {
+        ParkLot parkLot = new ParkLot(1);
+        Car car = parkLot.pickUp(null);
+        Assert.assertNull(car);
+
+    }
+
+    @Test
+    public void giveParkLotAndInvalidTicketWhenPickupThenGetNull() {
+        ParkLot parkLot = new ParkLot(1);
+        Ticket ticket = parkLot.Park(new Car());
+        parkLot.pickUp(ticket);
+        Car secondPickup = parkLot.pickUp(ticket);
+        Assert.assertNull(secondPickup);
 
     }
 
