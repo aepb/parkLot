@@ -14,8 +14,7 @@ public class ParkingLotTest {
     public void ifMaxSlotEqualsZeroWhenCreateParklotThenGetInvalidMaxSlotCount() {
         thrown.expect(ParkingLotException.class);
         thrown.expectMessage("INVALID_MAX_SLOT_COUNT");
-        ParkLot parkLot = new ParkLot(0);
-        Assert.assertNull(parkLot);
+        new ParkLot(0);
     }
 
     @Test
@@ -42,9 +41,7 @@ public class ParkingLotTest {
         thrown.expect(ParkingLotException.class);
         thrown.expectMessage("PARTLOT_FULL");
 
-        Ticket ticket = parkLot.Park(car2);
-        // then
-        Assert.assertNull(ticket);
+        parkLot.Park(car2);
 
     }
 
@@ -58,7 +55,7 @@ public class ParkingLotTest {
         Car pickedCar = parkLot.pickUp(ticket);
         // then
         Assert.assertTrue(pickedCar == car);
-        Assert.assertTrue(pickedCar.getNumber()==car.getNumber());
+        Assert.assertEquals(pickedCar.getNumber(),car.getNumber());
     }
 
     @Test
@@ -68,9 +65,8 @@ public class ParkingLotTest {
         // when
         thrown.expect(ParkingLotException.class);
         thrown.expectMessage("INVALID_TICKET");
-        Car car = parkLot.pickUp(null);
-        // then
-        Assert.assertNull(car);
+        parkLot.pickUp(null);
+
 
     }
 
@@ -83,9 +79,8 @@ public class ParkingLotTest {
         // when
         thrown.expect(ParkingLotException.class);
         thrown.expectMessage("INVALID_TICKET");
-        Car secondPickup = parkLot.pickUp(ticket);
-        // then
-        Assert.assertNull(secondPickup);
+        parkLot.pickUp(ticket);
+
 
     }
 
