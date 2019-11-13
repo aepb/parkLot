@@ -11,15 +11,15 @@ public class ParkingLotTest {
     public ExpectedException thrown = ExpectedException.none();
     
     @Test
-    public void ifTotalSpaceEqualsZeroWhenCreateParklongThenGetParkingLotException() {
+    public void ifMaxSlotEqualsZeroWhenCreateParklongThenGetParkingLotException() {
         thrown.expect(ParkingLotException.class);
-        thrown.expectMessage("INVALID_SPACE_TOTALCOUNT");
+        thrown.expectMessage("INVALID_SLOT_TOTALCOUNT");
         ParkLot parkLot = new ParkLot(0);
         Assert.assertNull(parkLot);
     }
 
     @Test
-    public void given1SpaceParkLotAndCarWhenParkingThenGetTicket() {
+    public void given1SlotParkLotAndCarWhenParkingThenGetTicket() {
         // give
         ParkLot parkLot = new ParkLot(1);
         Car car = new Car();
@@ -31,7 +31,7 @@ public class ParkingLotTest {
     }
 
     @Test
-    public void giveNoSpaceParkLotAndCarWhenParkingThenGetParkingLotException() {
+    public void giveNoSlotParkLotAndCarWhenParkingThenGetParkingLotException() {
         // give
         ParkLot parkLot = new ParkLot(1);
         Car car1 = new Car();

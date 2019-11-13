@@ -6,18 +6,18 @@ import java.util.Map;
 public class ParkLot {
 
     private Map<Ticket, Car> parkDatas = new HashMap<>();
-    private int totalSpaceCount;
+    private int maxSlotCount;
 
-    public ParkLot(int totalSpaceCount) {
+    public ParkLot(int maxSlotCount) {
         super();
-        if (totalSpaceCount <= 0) {
-            throw new ParkingLotException("INVALID_SPACE_TOTALCOUNT");
+        if (maxSlotCount <= 0) {
+            throw new ParkingLotException("INVALID_SLOT_TOTALCOUNT");
         }
-        this.totalSpaceCount = totalSpaceCount;
+        this.maxSlotCount = maxSlotCount;
     }
 
     public Ticket Park(Car car) {
-        if (parkDatas.size() < totalSpaceCount) {
+        if (parkDatas.size() < maxSlotCount) {
             Ticket ticket = new Ticket(car.getNumber());
             parkDatas.put(ticket, car);
             return ticket;
