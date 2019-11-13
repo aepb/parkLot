@@ -26,4 +26,15 @@ public class ParkingLotTest {
 
     }
 
+    @Test
+    public void giveParkLotAndTicketWhenPickupThenGetCar(){
+        ParkLot parkLot=new ParkLot(1);
+        Car car=new Car();
+        Ticket ticket=parkLot.Park(car);
+
+        Car pickedCar= parkLot.pickUp(ticket);
+        Assert.assertTrue(pickedCar==car);
+
+    }
+
 }

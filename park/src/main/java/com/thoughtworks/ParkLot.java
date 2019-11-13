@@ -14,14 +14,24 @@ public class ParkLot {
     }
 
     public Ticket Park(Car car) {
-        if(parkDatas.size()<totalSpaceCount){
+        if (parkDatas.size() < totalSpaceCount) {
             Ticket ticket = new Ticket(car.getNumber());
             parkDatas.put(ticket, car);
             return ticket;
-        }else{
+        } else {
             return null;
         }
 
+    }
+
+    public Car pickUp(Ticket ticket) {
+        if (parkDatas.containsKey(ticket)) {
+            Car car = parkDatas.get(ticket);
+            parkDatas.remove(ticket);
+            return car;
+        } else {
+            return null;
+        }
     }
 
 }
