@@ -22,7 +22,7 @@ public class ParkingLotTest {
     public void given1SlotParkLotAndCarWhenParkingThenGetTicket() {
         // give
         ParkLot parkLot = new ParkLot(1);
-        Car car = new Car();
+        Car car = new Car("abc");
         // when
         Ticket ticket = parkLot.Park(car);
         // then
@@ -34,9 +34,9 @@ public class ParkingLotTest {
     public void giveNoSlotParkLotAndCarWhenParkingThenGetParkingLotException() {
         // give
         ParkLot parkLot = new ParkLot(1);
-        Car car1 = new Car();
+        Car car1 = new Car("abc");
         parkLot.Park(car1);
-        Car car2 = new Car();
+        Car car2 = new Car("bcd");
         // when
 
         thrown.expect(ParkingLotException.class);
@@ -52,13 +52,13 @@ public class ParkingLotTest {
     public void giveParkLotAndTicketWhenPickupThenGetCar() {
         // give
         ParkLot parkLot = new ParkLot(1);
-        Car car = new Car();
+        Car car = new Car("abc");
         Ticket ticket = parkLot.Park(car);
         // when
         Car pickedCar = parkLot.pickUp(ticket);
         // then
         Assert.assertTrue(pickedCar == car);
-
+        Assert.assertTrue(pickedCar.getNumber()==car.getNumber());
     }
 
     @Test
@@ -78,7 +78,7 @@ public class ParkingLotTest {
     public void giveParkLotAndInvalidTicketWhenPickupThenGetGetParkingLotException() {
         // give
         ParkLot parkLot = new ParkLot(1);
-        Ticket ticket = parkLot.Park(new Car());
+        Ticket ticket = parkLot.Park(new Car("abc"));
         parkLot.pickUp(ticket);
         // when
         thrown.expect(ParkingLotException.class);
