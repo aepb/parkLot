@@ -11,7 +11,7 @@ public class ParkLot {
     public ParkLot(int totalSpaceCount) {
         super();
         if (totalSpaceCount <= 0) {
-            throw new ParkingLotException("TOTAL COUNT ERROR!");
+            throw new ParkingLotException("INVALID_SPACE_TOTALCOUNT");
         }
         this.totalSpaceCount = totalSpaceCount;
     }
@@ -22,7 +22,7 @@ public class ParkLot {
             parkDatas.put(ticket, car);
             return ticket;
         } else {
-            return null;
+             throw new ParkingLotException("PARTLOT_FULL");
         }
 
     }
@@ -33,7 +33,7 @@ public class ParkLot {
             parkDatas.remove(ticket);
             return car;
         } else {
-            return null;
+            throw new ParkingLotException("INVALID_TICKET");
         }
     }
 

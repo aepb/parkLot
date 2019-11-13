@@ -12,9 +12,8 @@ public class ParkingLotTest {
     
     @Test
     public void ifTotalSpaceEqualsZeroWhenCreateParklongThenFailure() {
-        
         thrown.expect(ParkingLotException.class);
-        thrown.expectMessage("TOTAL COUNT ERROR");
+        thrown.expectMessage("INVALID_SPACE_TOTALCOUNT");
         ParkLot parkLot = new ParkLot(0);
         Assert.assertNull(parkLot);
     }
@@ -39,6 +38,10 @@ public class ParkingLotTest {
         parkLot.Park(car1);
         Car car2 = new Car();
         // when
+
+        thrown.expect(ParkingLotException.class);
+        thrown.expectMessage("PARTLOT_FULL");
+
         Ticket ticket = parkLot.Park(car2);
         // then
         Assert.assertNull(ticket);
@@ -63,6 +66,8 @@ public class ParkingLotTest {
         // give
         ParkLot parkLot = new ParkLot(1);
         // when
+        thrown.expect(ParkingLotException.class);
+        thrown.expectMessage("INVALID_TICKET");
         Car car = parkLot.pickUp(null);
         // then
         Assert.assertNull(car);
@@ -76,6 +81,8 @@ public class ParkingLotTest {
         Ticket ticket = parkLot.Park(new Car());
         parkLot.pickUp(ticket);
         // when
+        thrown.expect(ParkingLotException.class);
+        thrown.expectMessage("INVALID_TICKET");
         Car secondPickup = parkLot.pickUp(ticket);
         // then
         Assert.assertNull(secondPickup);
