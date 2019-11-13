@@ -23,7 +23,7 @@ public class ParkingLotTest {
         ParkLot parkLot = new ParkLot(1);
         Car car = new Car("abc");
         // when
-        Ticket ticket = parkLot.Park(car);
+        Ticket ticket = parkLot.park(car);
         // then
         Assert.assertNotNull(ticket);
         Assert.assertEquals(car.getNumber(), ticket.getCarNumber());
@@ -34,14 +34,14 @@ public class ParkingLotTest {
         // give
         ParkLot parkLot = new ParkLot(1);
         Car car1 = new Car("abc");
-        parkLot.Park(car1);
+        parkLot.park(car1);
         Car car2 = new Car("bcd");
         // when
 
         thrown.expect(ParkingLotException.class);
         thrown.expectMessage("PARTLOT_FULL");
 
-        parkLot.Park(car2);
+        parkLot.park(car2);
 
     }
 
@@ -50,7 +50,7 @@ public class ParkingLotTest {
         // give
         ParkLot parkLot = new ParkLot(1);
         Car car = new Car("abc");
-        Ticket ticket = parkLot.Park(car);
+        Ticket ticket = parkLot.park(car);
         // when
         Car pickedCar = parkLot.pickUp(ticket);
         // then
@@ -74,7 +74,7 @@ public class ParkingLotTest {
     public void giveParkLotAndInvalidTicketWhenPickupThenGetInvalidTicket() {
         // give
         ParkLot parkLot = new ParkLot(1);
-        Ticket ticket = parkLot.Park(new Car("abc"));
+        Ticket ticket = parkLot.park(new Car("abc"));
         parkLot.pickUp(ticket);
         // when
         thrown.expect(ParkingLotException.class);

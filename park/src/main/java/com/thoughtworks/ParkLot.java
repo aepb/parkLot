@@ -16,7 +16,7 @@ public class ParkLot {
         this.maxSlotCount = maxSlotCount;
     }
 
-    public Ticket Park(Car car) {
+    public Ticket park(Car car) {
         if (parkDatas.size() < maxSlotCount) {
             Ticket ticket = new Ticket(car.getNumber());
             parkDatas.put(ticket, car);
