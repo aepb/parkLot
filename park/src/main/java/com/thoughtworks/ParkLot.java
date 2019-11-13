@@ -11,7 +11,7 @@ public class ParkLot {
     public ParkLot(int maxSlotCount) {
         super();
         if (maxSlotCount <= 0) {
-            throw new ParkingLotException("INVALID_SLOT_TOTALCOUNT");
+            throw new ParkingLotException("INVALID_MAX_SLOT_COUNT");
         }
         this.maxSlotCount = maxSlotCount;
     }

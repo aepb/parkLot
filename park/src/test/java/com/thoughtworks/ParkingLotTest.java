@@ -11,9 +11,9 @@ public class ParkingLotTest {
     public ExpectedException thrown = ExpectedException.none();
     
     @Test
-    public void ifMaxSlotEqualsZeroWhenCreateParklongThenGetParkingLotException() {
+    public void ifMaxSlotEqualsZeroWhenCreateParklotThenGetInvalidMaxSlotCount() {
         thrown.expect(ParkingLotException.class);
-        thrown.expectMessage("INVALID_SLOT_TOTALCOUNT");
+        thrown.expectMessage("INVALID_MAX_SLOT_COUNT");
         ParkLot parkLot = new ParkLot(0);
         Assert.assertNull(parkLot);
     }
