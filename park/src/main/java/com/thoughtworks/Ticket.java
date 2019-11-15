@@ -6,11 +6,12 @@ public class Ticket {
 
     private String carNumber;
     private String token;
-
-    public Ticket(String carNumber) {
+    private ParkLot parkLot;
+    public Ticket(String carNumber,ParkLot parkLot) {
         super();
         this.carNumber = carNumber;
         this.token=UUID.randomUUID().toString();
+        this.parkLot=parkLot;
     }
 
     public String getToken() {
@@ -19,6 +20,10 @@ public class Ticket {
     public String getCarNumber() {
 		return this.carNumber;
     }
+
+	public Object getParkLot() {
+		return this.parkLot;
+	}
     
 
 

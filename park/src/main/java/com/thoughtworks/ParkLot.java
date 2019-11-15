@@ -18,13 +18,17 @@ public class ParkLot {
 
     public Ticket park(Car car) {
         if (parkDatas.size() < maxSlotCount) {
-            Ticket ticket = new Ticket(car.getNumber());
+            Ticket ticket = new Ticket(car.getNumber(), this);
             parkDatas.put(ticket, car);
             return ticket;
         } else {
-             throw new ParkingLotException("PARTLOT_FULL");
+            throw new ParkingLotException("PARTLOT_FULL");
         }
 
+    }
+
+    public boolean isFull() {
+        return this.parkDatas.size() >= maxSlotCount;
     }
 
     public Car pickUp(Ticket ticket) {
