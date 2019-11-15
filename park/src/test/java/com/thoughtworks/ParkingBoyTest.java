@@ -23,7 +23,7 @@ public class ParkingBoyTest{
     }
     
     @Test
-    public void give()
+    public void give0SlotLeftParkLotAnd2SlotsLeftParkLotAndParkingBoyWhenParkingThenGetParklot2sTicket()
     {
         //given
         ParkingBoy parkingBoy=new  ParkingBoy();
