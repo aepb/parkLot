@@ -14,7 +14,7 @@ public class ParkingBoyTest{
     public void give1ParkingBoy1EmptyParkingLotWhenParkingThenGetParkingLot1sTicket(){
         //give
         ParkingBoy parkingBoy=new ParkingBoy();
-        ParkLot parkLot=new ParkLot(10);
+        ParkLot parkLot=new ParkLot(10,"001");
         parkingBoy.addParkLot(parkLot);
 
         Car car=new Car("s001");
@@ -32,8 +32,8 @@ public class ParkingBoyTest{
     {
         //given
         ParkingBoy parkingBoy=new  ParkingBoy();
-        ParkLot parkLot1=new ParkLot(2);
-        ParkLot parkLot2=new ParkLot(2);
+        ParkLot parkLot1=new ParkLot(2,"001");
+        ParkLot parkLot2=new ParkLot(2,"002");
         parkingBoy.addParkLot(parkLot1,parkLot2);
 
         parkingBoy.parking(new Car("s001"));
@@ -52,8 +52,8 @@ public class ParkingBoyTest{
     {
          //given
          ParkingBoy parkingBoy=new  ParkingBoy();
-         ParkLot parkLot1=new ParkLot(2);
-         ParkLot parkLot2=new ParkLot(2);
+         ParkLot parkLot1=new ParkLot(2,"001");
+         ParkLot parkLot2=new ParkLot(2,"002");
          parkingBoy.addParkLot(parkLot1,parkLot2);
  
          Ticket ticket_001= parkingBoy.parking(new Car("s001"));
@@ -78,8 +78,8 @@ public class ParkingBoyTest{
     {
          //given
          ParkingBoy parkingBoy=new  ParkingBoy();
-         ParkLot parkLot1=new ParkLot(2);
-         ParkLot parkLot2=new ParkLot(2);
+         ParkLot parkLot1=new ParkLot(2,"001");
+         ParkLot parkLot2=new ParkLot(2,"002");
          parkingBoy.addParkLot(parkLot1,parkLot2);
  
          parkingBoy.parking(new Car("s001"));
@@ -102,8 +102,8 @@ public class ParkingBoyTest{
     {
          //given
          ParkingBoy parkingBoy=new  ParkingBoy();
-         ParkLot parkLot1=new ParkLot(2);
-         ParkLot parkLot2=new ParkLot(2);
+         ParkLot parkLot1=new ParkLot(2,"001");
+         ParkLot parkLot2=new ParkLot(2,"002");
          parkingBoy.addParkLot(parkLot1,parkLot2);
  
          parkingBoy.parking(new Car("s001"));
@@ -122,8 +122,8 @@ public class ParkingBoyTest{
     {
          //given
          ParkingBoy parkingBoy=new  ParkingBoy();
-         ParkLot parkLot1=new ParkLot(2);
-         ParkLot parkLot2=new ParkLot(2);
+         ParkLot parkLot1=new ParkLot(2,"001");
+         ParkLot parkLot2=new ParkLot(2,"002");
          parkingBoy.addParkLot(parkLot1,parkLot2);
  
          parkingBoy.parking(new Car("s001"));

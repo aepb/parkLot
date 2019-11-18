@@ -14,13 +14,13 @@ public class ParkingLotTest {
     public void ifMaxSlotEqualsZeroWhenCreateParklotThenGetInvalidMaxSlotCount() {
         thrown.expect(ParkingLotException.class);
         thrown.expectMessage("INVALID_MAX_SLOT_COUNT");
-        new ParkLot(0);
+        new ParkLot(0,"000");
     }
 
     @Test
     public void given1SlotParkLotAndCarWhenParkingThenGetTicket() {
         // give
-        ParkLot parkLot = new ParkLot(1);
+        ParkLot parkLot = new ParkLot(1,"001");
         Car car = new Car("abc");
         // when
         Ticket ticket = parkLot.park(car);
@@ -32,7 +32,7 @@ public class ParkingLotTest {
     @Test
     public void giveNoSlotParkLotAndCarWhenParkingThenGetPartlotFull() {
         // give
-        ParkLot parkLot = new ParkLot(1);
+        ParkLot parkLot = new ParkLot(1,"001");
         Car car1 = new Car("abc");
         parkLot.park(car1);
         Car car2 = new Car("bcd");
@@ -48,7 +48,7 @@ public class ParkingLotTest {
     @Test
     public void giveParkLotAndTicketWhenPickupThenGetCar() {
         // give
-        ParkLot parkLot = new ParkLot(1);
+        ParkLot parkLot = new ParkLot(1,"001");
         Car car = new Car("abc");
         Ticket ticket = parkLot.park(car);
         // when
@@ -63,7 +63,7 @@ public class ParkingLotTest {
     @Test
     public void giveParkLotAndInvalidTicketWhenPickupThenGetInvalidTicket() {
         // give
-        ParkLot parkLot = new ParkLot(1);
+        ParkLot parkLot = new ParkLot(1,"001");
         Ticket ticket = parkLot.park(new Car("abc"));
         parkLot.pickUp(ticket);
         // when
