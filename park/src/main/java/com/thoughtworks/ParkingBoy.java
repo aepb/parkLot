@@ -14,11 +14,15 @@ public class ParkingBoy {
 				return parkLot.park(car);
 			}
 		}
-		return null;
+		throw new ParkingLotException("PARTLOT_FULL");
 	}
 
 	public void addParkLot( ParkLot... parkLots) {
 		this.parkLots.addAll(Arrays.asList(parkLots));
+	}
+
+	public Car pickUp(Ticket ticket_001) {
+		return ticket_001.getParkLot().pickUp(ticket_001);
 	}
 
 }

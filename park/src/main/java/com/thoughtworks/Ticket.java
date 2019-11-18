@@ -21,7 +21,7 @@ public class Ticket {
 		return this.carNumber;
     }
 
-	public Object getParkLot() {
+	public ParkLot getParkLot() {
 		return this.parkLot;
 	}
     
