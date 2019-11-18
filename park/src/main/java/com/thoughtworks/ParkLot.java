@@ -9,6 +9,10 @@ public class ParkLot {
     private int maxSlotCount;
     private String parkLotNum;
 
+    public String getNumber(){
+        return this.parkLotNum;
+    }
+
     public ParkLot(int maxSlotCount, String parkLotNum) {
         super();
         if (maxSlotCount <= 0) {

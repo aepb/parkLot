@@ -24,7 +24,7 @@ public class ParkingBoyTest{
         Assert.assertNotNull(ticket);
         Assert.assertEquals(car.getNumber(), ticket.getCarNumber());
         Assert.assertEquals(parkLot, ticket.getParkLot());
-
+        Assert.assertEquals(parkLot.getNumber(), ticket.getParkLot().getNumber());
     }
     
     @Test
