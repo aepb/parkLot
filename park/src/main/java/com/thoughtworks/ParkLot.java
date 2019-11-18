@@ -7,13 +7,15 @@ public class ParkLot {
 
     private Map<Ticket, Car> parkDatas = new HashMap<>();
     private int maxSlotCount;
+    private String parkLotNum;
 
-    public ParkLot(int maxSlotCount) {
+    public ParkLot(int maxSlotCount, String parkLotNum) {
         super();
         if (maxSlotCount <= 0) {
             throw new ParkingLotException("INVALID_MAX_SLOT_COUNT");
         }
         this.maxSlotCount = maxSlotCount;
+        this.parkLotNum = parkLotNum;
     }
 
     public Ticket park(Car car) {
