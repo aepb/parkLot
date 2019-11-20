@@ -1,14 +1,19 @@
 package com.thoughtworks;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class SmartBoy {
 
-	private ParkLot parkLot;
+	private List<ParkLot> parkLots=new ArrayList<>();
 	public void addParkLot(ParkLot parkLot) {
-		this.parkLot=parkLot;
+		parkLots.add(parkLot);
 	}
 
 	public Ticket parking(Car car) {
-		return parkLot.park(car);
+		
+		ParkLot target= parkLots.stream().sorted((o1,o2)->o2.getLeftSoltCount()-o1.getLeftSoltCount()).findFirst().get();
+		return target.park(car);
 	}
 
 }

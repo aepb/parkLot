@@ -44,5 +44,8 @@ public class ParkLot {
             throw new ParkingLotException("INVALID_TICKET");
         }
     }
+    public int getLeftSoltCount(){
+        return  maxSlotCount- this.parkDatas.size();
+    }
 
 }
