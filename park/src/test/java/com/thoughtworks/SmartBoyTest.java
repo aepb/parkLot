@@ -88,5 +88,20 @@ public class SmartBoyTest{
         Assert.assertEquals(parkLot2, ticket.getParkLot() );
         Assert.assertEquals("S002", ticket.getCarNumber());
     }
+    @Test
+    public void give1SmartBoy0SlotLeftParkingLot1And0SlotLeftParkLot2WhenParkingThenCantParkCar(){
+
+        SmartBoy smartBoy = new SmartBoy();
+        ParkLot parkLot1=new ParkLot(1,"001");
+        parkLot1.park(new Car("S001"));
+        ParkLot parkLot2=new ParkLot(1,"002");
+        parkLot2.park(new Car("S002"));
+        smartBoy.addParkLot(parkLot1);
+        smartBoy.addParkLot(parkLot2);
+        //when
+        Ticket ticket= smartBoy.parking(new Car("S003"));
+        Assert.assertNull(ticket);
+        
+    }
 
 }
