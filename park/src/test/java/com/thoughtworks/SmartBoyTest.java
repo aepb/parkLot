@@ -105,7 +105,7 @@ public class SmartBoyTest{
     }
 
     @Test
-    public void give0SlotLeftParkLotAnd0SlotsLeftParkLotAndParkingBoyWhenPickupThenGetCar()
+    public void give0SlotLeftParkLotAnd0SlotsLeftParkLotAndsmartBoyWhenPickupThenGetCar()
     {
         SmartBoy smartBoy = new SmartBoy();
         ParkLot parkLot1=new ParkLot(1,"001");
@@ -118,5 +118,28 @@ public class SmartBoyTest{
         Car car= smartBoy.pickUp(ticket);
         Assert.assertNotNull(car);
         Assert.assertEquals("S003", car.getNumber());
+    }
+
+    @Test
+    public void givesmartBoyAndInvalidTicketsWhenPickupThenGetCar()
+    {
+         //given
+         SmartBoy smartBoy=new  SmartBoy();
+         ParkLot parkLot1=new ParkLot(2,"001");
+         ParkLot parkLot2=new ParkLot(2,"002");
+         smartBoy.addParkLot(parkLot1);
+         smartBoy.addParkLot(parkLot2);
+ 
+         smartBoy.parking(new Car("s001"));
+         smartBoy.parking(new Car("s002"));
+
+         Ticket ticket= smartBoy.parking(new Car("s003"));
+         smartBoy.pickUp(ticket);
+         //when
+         
+        
+         thrown.expect(ParkingLotException.class);
+         thrown.expectMessage("INVALID_TICKET");
+         smartBoy.pickUp(ticket);
     }
 }
