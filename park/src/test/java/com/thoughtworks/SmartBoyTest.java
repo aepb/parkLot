@@ -104,4 +104,19 @@ public class SmartBoyTest{
         
     }
 
+    @Test
+    public void give0SlotLeftParkLotAnd0SlotsLeftParkLotAndParkingBoyWhenPickupThenGetCar()
+    {
+        SmartBoy smartBoy = new SmartBoy();
+        ParkLot parkLot1=new ParkLot(1,"001");
+        ParkLot parkLot2=new ParkLot(1,"002");
+        smartBoy.addParkLot(parkLot1);
+        smartBoy.addParkLot(parkLot2);
+        Ticket ticket= smartBoy.parking(new Car("S003"));
+        
+        
+        Car car= smartBoy.pickUp(ticket);
+        Assert.assertNotNull(car);
+        Assert.assertEquals("S003", car.getNumber());
+    }
 }

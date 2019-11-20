@@ -17,4 +17,10 @@ public class SmartBoy {
 		return target.isFull()?null: target.park(car);
 	}
 
+	public Car pickUp(Ticket ticket) {
+		return ticket.getParkLot().pickUp(ticket);
+	}
+
+
+
 }
