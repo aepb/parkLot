@@ -24,5 +24,7 @@ public class ParkingBoy implements IParkingBoy {
 	public Car pickUp(Ticket ticket) {
 		return ticket.getParkLot().pickUp(ticket);
 	}
-
+	public boolean canParking(){
+		return parkLots.stream().filter(p->!p.isFull()).count()>0;
+	}
 }

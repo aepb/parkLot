@@ -142,4 +142,24 @@ public class ManagerTest {
          thrown.expectMessage("INVALID_TICKET");
          Manager.pickUp(ticket);
     }
+
+    @Test
+    public void Give1Manager1EmptyParkingLotAnd1ParkingBoy1EmptyParkingWhenParkingThenGetParkingLot2sTicket(){
+        Manager manager=new  Manager();
+        ParkLot parkLot1=new ParkLot(1,"001");
+        manager.addParkLot(parkLot1);
+
+        ParkingBoy parkingBoy=new ParkingBoy();
+        ParkLot parkLot2=new ParkLot(1, "002");
+        parkingBoy.addParkLot(parkLot2);
+
+        manager.addBoy(parkingBoy);
+
+        Ticket ticket=manager.parking(new Car("C001"));
+        Assert.assertNotNull(ticket);
+        Assert.assertEquals(ticket.getCarNumber(), "C001");
+        Assert.assertEquals(ticket.getParkLot(), parkLot2);
+
+    }
+
 }
