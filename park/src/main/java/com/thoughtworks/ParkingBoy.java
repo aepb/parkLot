@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class ParkingBoy {
+public class ParkingBoy implements IParkingBoy {
 
 	private List<ParkLot> parkLots = new ArrayList<>();
 

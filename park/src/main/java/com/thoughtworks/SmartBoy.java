@@ -3,7 +3,7 @@ package com.thoughtworks;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SmartBoy {
+public class SmartBoy implements IParkingBoy {
 
 	private List<ParkLot> parkLots=new ArrayList<>();
 	public void addParkLot(ParkLot parkLot) {
