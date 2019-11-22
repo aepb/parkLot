@@ -257,4 +257,31 @@ public class ManagerTest {
 
     }
 
+    @Test
+    public void Give1Manager0SlotParkingLotAnd1SmartBoy0SlotParkingAnd1ParkingBoy1EmptyParkingWhenParkingThenGetParkingLot2sTicket(){
+        Manager manager=new  Manager();
+        ParkLot parkLot1=new ParkLot(1,"001");
+        parkLot1.park(new Car("X001"));
+        manager.addParkLot(parkLot1);
+
+        SmartBoy smartBoy=new SmartBoy();
+        ParkLot parkLot2=new ParkLot(1, "002");
+        parkLot2.park(new Car("X002"));
+        smartBoy.addParkLot(parkLot2);
+
+        manager.addBoy(smartBoy);
+
+        ParkingBoy parkingBoy=new ParkingBoy();
+        ParkLot parkLot3=new ParkLot(1, "003");
+        parkLot3.park(new Car("X003"));
+        parkingBoy.addParkLot(parkLot3);
+        manager.addBoy(parkingBoy);
+
+
+
+       Ticket ticket= manager.parking(new Car("C001"));
+       Assert.assertNull(ticket);
+
+    }
+
 }
