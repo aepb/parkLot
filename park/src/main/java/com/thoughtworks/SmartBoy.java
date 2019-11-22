@@ -21,6 +21,11 @@ public class SmartBoy implements IParkingBoy {
 		return ticket.getParkLot().pickUp(ticket);
 	}
 
+	@Override
+	public boolean canParking() {
+		return parkLots.stream().filter(p->!p.isFull()).count()>0;
+	}
+
 
 
 }

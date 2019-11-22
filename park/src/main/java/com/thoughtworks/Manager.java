@@ -1,18 +1,22 @@
 package com.thoughtworks;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Manager extends SmartBoy {
 
-    private ParkingBoy parkingBoy;
+    private List<IParkingBoy> boys=new ArrayList<>();
 
-	public void addBoy(ParkingBoy parkingBoy) {
-        this.parkingBoy=parkingBoy;
+	public void addBoy(IParkingBoy boy) {
+        this.boys.add(boy);
     }
 
     @Override
     public Ticket parking(Car car) {
-        // TODO Auto-generated method stub
-        if(parkingBoy.canParking()){
-            return parkingBoy.parking(car);
+        for (IParkingBoy boy : boys) {
+            if(boy.canParking()){
+               return boy.parking(car);
+            }
         }
         return super.parking(car);
     }
